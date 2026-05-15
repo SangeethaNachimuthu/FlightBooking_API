@@ -3,9 +3,10 @@ import {MapPin, Plane} from "lucide-react";
 
 type FlightCardProps = {
     flight: FlightItem;
+    setSelectedFlight: (flight: FlightItem) => void;
 }
 
-const FlightCard = ({flight} : FlightCardProps) => {
+const FlightCard = ({flight, setSelectedFlight} : FlightCardProps) => {
 
     //Destructing (Instead of using flight.id, we can use id.)
     const {
@@ -32,8 +33,6 @@ const FlightCard = ({flight} : FlightCardProps) => {
         minute: "2-digit"
     });
 
-    const handleAddToCart = () => {
-    }
 
     return (
         <article className="border border-slate-200 rounded-[1.25rem] bg-white p-3
@@ -100,7 +99,9 @@ const FlightCard = ({flight} : FlightCardProps) => {
                             }`}
                             aria-label="Add to cart"
                             disabled={!isAvailable}
-                            onClick={handleAddToCart}
+                            onClick={() => {
+                                setSelectedFlight(flight);
+                            }}
                     >
                         {isAvailable ? "Book Now" : "Booked"}
                     </button>

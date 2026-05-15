@@ -1,9 +1,21 @@
 import {ChevronDown} from "lucide-react";
 import FlightGrid from "./FlightGrid.tsx";
-import type {FlightProps} from "../types/flight.ts";
+import type {FlightItem, FlightProps} from "../types/flight.ts";
+import {useState} from "react";
+import BookFlight from "./BookFlight.tsx";
 
 
-const MainContent = ({flights, selectedCategory} : FlightProps) => {
+const MainContent = ({flights, selectedCategory, setSelectedCategory} : FlightProps) => {
+
+    const [selectedFlight, setSelectedFlight] = useState<FlightItem | null>(null);
+
+    const handleBookingSuccess = () => {
+        setTimeout(() => {
+            setSelectedFlight(null);
+            setSelectedCategory("All Flights");
+        }, 1500);
+    };
+
     return (
         <div>
             <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -12,7 +24,7 @@ const MainContent = ({flights, selectedCategory} : FlightProps) => {
                         <div className="border border-slate-200 rounded-[1.25rem] bg-slate-50/50 backdrop-blur-sm shadow-sm transition-all duration-300 hover:shadow-xl hover:border-blue-400 p-5">
                             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                                 <h1 className="text-xl font-bold tracking-tight text-blue-700">
-                                    All Flights
+                                    {selectedFlight ? "Book a Flight" : selectedCategory}
                                 </h1>
                                 <label className="inline-flex items-center gap-2 text-sm text-slate-600">
                                     <span className="hidden sm:inline">Sort by:</span>
@@ -31,7 +43,20 @@ const MainContent = ({flights, selectedCategory} : FlightProps) => {
                                 </label>
                             </div>
                             <div className="mt-5 h-px bg-slate-100"></div>
-                            <FlightGrid flights={flights} selectedCategory={selectedCategory} />
+
+                            {selectedFlight ? (
+                                <BookFlight selectedFlight={selectedFlight} onSuccess={handleBookingSuccess} />
+                                ) : (
+                                    selectedCategory === "All Flights" ||
+                                    selectedCategory === "Available Flights" || selectedCategory === "Book a Flight"
+                                ) && (
+                                <FlightGrid
+                                    flights={flights}
+                                    selectedCategory={selectedCategory}
+                                    setSelectedFlight={setSelectedFlight}
+                                />
+                            )}
+
                         </div>
                     </section>
                 </div>

@@ -16,4 +16,6 @@ export type CategoryProps = {
 export type FlightProps = {
     flights: FlightItem[];
     selectedCategory: string;
+    setSelectedFlight: (flight: FlightItem | null) => void;
+    setSelectedCategory: (category: string) => void;
 }

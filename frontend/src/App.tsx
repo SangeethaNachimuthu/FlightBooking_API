@@ -25,6 +25,8 @@ function App() {
 
     const [selectedCategory, setSelectedCategory] = useState("All Flights");
 
+
+
       return (
           <div className="min-h-screen">
             <Header />
@@ -33,7 +35,7 @@ function App() {
                     {/* Sidebar */}
                     <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
                     {/* Main content */}
-                    <MainContent flights={flights} selectedCategory={selectedCategory} />
+                    <MainContent flights={flights} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                 </div>
             </div>
           </div>

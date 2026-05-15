@@ -1,12 +1,17 @@
-import type {FlightProps} from "../types/flight.ts";
+import type {FlightItem} from "../types/flight.ts";
 import FlightCard from "./FlightCard.tsx";
 import {useState} from "react";
 import {ChevronLeft, ChevronRight} from "lucide-react";
 
+type Props = {
+    flights: FlightItem[];
+    selectedCategory: string;
+    setSelectedFlight: (flight: FlightItem) => void;
+}
 
-const FlightGrid = ({flights, selectedCategory} : FlightProps) => {
+const FlightGrid = ({flights, selectedCategory, setSelectedFlight} : Props) => {
 
-    const filteredFlights = selectedCategory === "Available Flights"
+    const filteredFlights = (selectedCategory === "Available Flights" || selectedCategory === "Book a Flight")
         ? flights.filter(
             (flight) => flight.status === "AVAILABLE")
         : flights;
@@ -23,7 +28,11 @@ const FlightGrid = ({flights, selectedCategory} : FlightProps) => {
             {/* Flight cards grid */}
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {currentFlights.map((flight) => (
-                    <FlightCard key={flight.id} flight={flight} />
+                    <FlightCard
+                        key={flight.id}
+                        flight={flight}
+                        setSelectedFlight={setSelectedFlight}
+                    />
                 ))}
             </div>
 

@@ -4,3 +4,26 @@ export async function getAllFlights() {
     const response = await fetch(BASE_URL);
     return response.json();
 }
+
+export async function bookFlight(
+    flightId: number,
+    passengerName: string,
+    passengerEmail: string
+) {
+    const response = await fetch(`${BASE_URL}/${flightId}/book`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            passengerName,
+            passengerEmail,
+        }),
+    });
+
+    if (!response.ok) {
+        throw new Error("Failed to book flight");
+    }
+
+    return response.json();
+}
