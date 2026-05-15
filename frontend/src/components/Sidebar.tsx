@@ -8,7 +8,7 @@ import {
     PlaneTakeoff,
     Settings
 } from "lucide-react";
-import {useState} from "react";
+import type {CategoryProps} from "../types/flight.ts";
 
 
 type CategoryItem = {
@@ -24,9 +24,11 @@ const items: CategoryItem[] = [
 ]
 
 
-const Sidebar = () => {
+const Sidebar = ({selectedCategory, setSelectedCategory}: CategoryProps) => {
 
-    const [selectedCategory, setSelectedCategory] = useState(items[0].name);
+    const handleChange = (category : string) => {
+        setSelectedCategory(category);
+    };
 
     return (
         <aside className="w-72 border-r border-slate-200 bg-slate-50/40">
@@ -41,7 +43,7 @@ const Sidebar = () => {
                             return (
                                 <button
                                     key={index}
-                                    onClick={() => setSelectedCategory(item.name)}
+                                    onClick={() => handleChange(item.name)}
                                     className={`group flex items-center gap-3 w-56 px-3 py-2 rounded-lg border transition-all duration-200
                                         ${isActive
                                             ? "border-blue-500 bg-blue-50"

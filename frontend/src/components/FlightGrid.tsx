@@ -1,19 +1,21 @@
-import type {FlightItem} from "../types/flight.ts";
+import type {FlightProps} from "../types/flight.ts";
 import FlightCard from "./FlightCard.tsx";
 import {useState} from "react";
 import {ChevronLeft, ChevronRight} from "lucide-react";
 
-type Props = {
-    flights: FlightItem[];
-}
 
-const FlightGrid = ({flights} : Props) => {
+const FlightGrid = ({flights, selectedCategory} : FlightProps) => {
 
+    const filteredFlights = selectedCategory === "Available Flights"
+        ? flights.filter(
+            (flight) => flight.status === "AVAILABLE")
+        : flights;
     const [currentPage, setCurrentPage] = useState(1);
     const flightsPerPage = 6;
     const startIndex = (currentPage - 1) * flightsPerPage;
-    const currentFlights = flights.slice(startIndex, startIndex + flightsPerPage);
-    const totalPages = Math.ceil(flights.length / flightsPerPage);
+    const currentFlights = filteredFlights.slice(startIndex, startIndex + flightsPerPage);
+    const totalPages = Math.ceil(filteredFlights.length / flightsPerPage);
+
 
     return (
         <div className="mt-5">

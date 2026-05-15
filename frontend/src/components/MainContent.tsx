@@ -1,12 +1,9 @@
 import {ChevronDown} from "lucide-react";
 import FlightGrid from "./FlightGrid.tsx";
-import type {FlightItem} from "../types/flight.ts";
+import type {FlightProps} from "../types/flight.ts";
 
-type Props = {
-    flights: FlightItem[];
-}
 
-const MainContent = ({flights} : Props) => {
+const MainContent = ({flights, selectedCategory} : FlightProps) => {
     return (
         <div>
             <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -34,7 +31,7 @@ const MainContent = ({flights} : Props) => {
                                 </label>
                             </div>
                             <div className="mt-5 h-px bg-slate-100"></div>
-                            <FlightGrid flights={flights} />
+                            <FlightGrid flights={flights} selectedCategory={selectedCategory} />
                         </div>
                     </section>
                 </div>

@@ -7,3 +7,13 @@ export type FlightItem = {
     destination: string;
     price: number;
 }
+
+export type CategoryProps = {
+    selectedCategory: string;
+    setSelectedCategory: (value:string) => void;
+}
+
+export type FlightProps = {
+    flights: FlightItem[];
+    selectedCategory: string;
+}

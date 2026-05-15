@@ -23,15 +23,17 @@ function App() {
         fetchFlights();
     }, [])
 
+    const [selectedCategory, setSelectedCategory] = useState("All Flights");
+
       return (
           <div className="min-h-screen">
             <Header />
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex">
                     {/* Sidebar */}
-                    <Sidebar />
+                    <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
                     {/* Main content */}
-                    <MainContent flights={flights}/>
+                    <MainContent flights={flights} selectedCategory={selectedCategory} />
                 </div>
             </div>
           </div>
