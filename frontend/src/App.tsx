@@ -4,6 +4,7 @@ import MainContent from "./components/MainContent.tsx";
 import {useEffect, useState} from "react";
 import type {FlightItem} from "./types/flight.ts";
 import {getAllFlights} from "./api/FlightAPI.ts";
+import Footer from "./components/Footer.tsx";
 
 function App() {
 
@@ -27,19 +28,25 @@ function App() {
 
 
 
-      return (
-          <div className="min-h-screen">
+    return (
+        <div className="min-h-screen">
             <Header />
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex">
                     {/* Sidebar */}
-                    <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
+                    <Sidebar
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory} />
                     {/* Main content */}
-                    <MainContent flights={flights} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
+                    <MainContent
+                        flights={flights}
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory} />
                 </div>
             </div>
-          </div>
-      )
+            <Footer />
+        </div>
+    )
 }
 
 export default App
