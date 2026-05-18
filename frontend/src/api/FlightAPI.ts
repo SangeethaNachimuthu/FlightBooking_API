@@ -27,3 +27,22 @@ export async function bookFlight(
 
     return response.json();
 }
+
+export  async function getBookingByEmail(email: string) {
+    const response = await fetch(`${BASE_URL}/bookings?email=${email}`);
+    if (!response.ok) {
+        throw new Error("Failed to fetch bookings");
+    }
+    return response.json();
+}
+
+export async function cancelBooking(flightId: number, email: string) {
+    const response = await fetch(`${BASE_URL}/${flightId}/cancel?email=${email}`, {
+        method: "DELETE",
+    });
+
+    if (!response.ok) {
+        throw new Error("Failed to cancel booking");
+    }
+    return response.text();
+}

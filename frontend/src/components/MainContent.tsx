@@ -1,9 +1,16 @@
 import {ChevronDown} from "lucide-react";
 import FlightGrid from "./FlightGrid.tsx";
-import type {FlightItem, FlightProps} from "../types/flight.ts";
+import type {FlightItem} from "../types/flight.ts";
 import {useState} from "react";
 import BookFlight from "./BookFlight.tsx";
+import MyBookings from "./MyBookings.tsx";
+import CancelBooking from "./CancelBooking.tsx";
 
+type FlightProps = {
+    flights: FlightItem[];
+    selectedCategory: string;
+    setSelectedCategory: (category: string) => void;
+}
 
 const MainContent = ({flights, selectedCategory, setSelectedCategory} : FlightProps) => {
 
@@ -18,8 +25,8 @@ const MainContent = ({flights, selectedCategory, setSelectedCategory} : FlightPr
 
     return (
         <div>
-            <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+            <main className="flex-1 px-4 py-6">
+                <div className="flex flex-col">
                     <section className="lg:col-span-9">
                         <div className="border border-slate-200 rounded-[1.25rem] bg-slate-50/50 backdrop-blur-sm shadow-sm transition-all duration-300 hover:shadow-xl hover:border-blue-400 p-5">
                             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -55,6 +62,14 @@ const MainContent = ({flights, selectedCategory, setSelectedCategory} : FlightPr
                                     selectedCategory={selectedCategory}
                                     setSelectedFlight={setSelectedFlight}
                                 />
+                            )}
+
+                            {selectedCategory === "My Bookings" && (
+                                <MyBookings />
+                            )}
+
+                            {selectedCategory === "Cancel Booking" && (
+                                <CancelBooking />
                             )}
 
                         </div>

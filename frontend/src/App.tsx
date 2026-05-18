@@ -35,7 +35,7 @@ function App() {
                     {/* Sidebar */}
                     <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
                     {/* Main content */}
-                    <MainContent flights={flights} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                    <MainContent flights={flights} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
                 </div>
             </div>
           </div>
