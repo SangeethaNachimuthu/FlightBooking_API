@@ -80,6 +80,19 @@ const Sidebar = ({selectedCategory, setSelectedCategory}: CategoryProps) => {
                         </span>
                     </button>
                 </div>
+
+                {/** Help **/}
+                <div className="bg-blue-50 rounded-xl w-56 h-40 p-4 mt-16 flex flex-col">
+                    <span className="text-blue-800 font-semibold text-md text-center">
+                        Need Help?
+                    </span>
+                    <span className="text-blue-900 text-sm text-center mt-2">
+                        We are here to assist you 24/7
+                    </span>
+                    <button className="bg-blue-600 rounded-md px-3 py-2 text-sm text-white mt-3 min-w-full">
+                        Contact Support
+                    </button>
+                </div>
             </div>
         </aside>
     );
