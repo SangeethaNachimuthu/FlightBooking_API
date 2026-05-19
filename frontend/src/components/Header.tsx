@@ -39,12 +39,12 @@ const Header = () => {
                     {/** User **/}
                     <div className="flex items-center gap-4">
                         {/* Notifications */}
-                        <button className="relative flex h-10 w-10 items-center justify-center rounded-full bg-blue-500 text-white transition-all hover:border-blue-300 hover:text-blue-600 hover:shadow-md">
+                        <button className="relative flex h-10 w-10 items-center justify-center rounded-full bg-blue-500 text-white transition-all hover:border-blue-300 hover:text-blue-800 hover:shadow-md">
                             <Bell size={20} />
-                            <span className="absolute right-3 top-3 h-2 w-2 rounded-full bg-red-500"></span>
+                            <span className="absolute right-3 top-3 h-1 w-1 rounded-full bg-red-500"></span>
                         </button>
                         {/* Profile */}
-                        <button className="flex items-center gap-3 rounded-2xl bg-white px-3 py-2 transition-all hover:border-blue-300 hover:shadow-md">
+                        <button className="flex items-center gap-3 rounded-2xl bg-white px-3 py-2 transition-all">
                             <div className="relative">
                                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-br from-blue-500 to-blue-700 text-white font-semibold">
                                     G
