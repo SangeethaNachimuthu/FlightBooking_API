@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import type {FlightItem} from "./types/flight.ts";
 import {getAllFlights} from "./api/FlightAPI.ts";
 import Footer from "./components/Footer.tsx";
+import RightSidebar from "./components/RightSidebar.tsx";
 
 function App() {
 
@@ -26,8 +27,6 @@ function App() {
 
     const [selectedCategory, setSelectedCategory] = useState("All Flights");
 
-
-
     return (
         <div className="min-h-screen">
             <Header />
@@ -42,6 +41,7 @@ function App() {
                         flights={flights}
                         selectedCategory={selectedCategory}
                         setSelectedCategory={setSelectedCategory} />
+                    <RightSidebar />
                 </div>
             </div>
             <Footer />

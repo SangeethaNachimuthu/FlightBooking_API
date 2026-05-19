@@ -27,14 +27,14 @@ const CancelBooking = () => {
         <div className="space-y-6 mt-3">
             <input
                 type="number"
-                placeholder="Flight ID"
+                placeholder="Enter the Flight ID"
                 value={flightId}
                 onChange={(e) => setFlightId(e.target.value)}
                 className="w-full rounded-xl border border-slate-200 px-4 py-2"
             />
             <input
                 type="email"
-                placeholder="Email"
+                placeholder="Enter the Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full rounded-xl border border-slate-200 px-4 py-2"

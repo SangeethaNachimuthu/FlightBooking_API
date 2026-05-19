@@ -23,10 +23,10 @@ const MyBookings = () => {
     };
 
     return (
-        <div className=" space-y-6 mt-3">
+        <div className="w-full space-y-6 mt-3">
             <input
                 type="email"
-                placeholder="Email"
+                placeholder="Enter your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full rounded-xl border border-slate-200 px-4 py-2"
@@ -37,8 +37,7 @@ const MyBookings = () => {
             >
                 Search
             </button>
-
-            {/* Results */}
+            {/** Result **/}
             <div className="space-y-4">
                 {loading && (
                     <p className="text-sm text-slate-500">
@@ -57,19 +56,19 @@ const MyBookings = () => {
                         className="rounded-xl border border-slate-200 p-4"
                     >
                         <div className="grid grid-cols-[160px_1fr] gap-y-2">
-                            <span className="font-semibold text-slate-700">
-                                Flight Number :
-                            </span>
+                <span className="font-semibold text-slate-700">
+                    Flight Number :
+                </span>
                             <span className="text-blue-700">{booking.flightNumber}</span>
 
                             <span className="font-semibold text-slate-700">
-                                Destination :
-                            </span>
+                    Destination :
+                </span>
                             <span className="text-blue-700">{booking.destination}</span>
 
                             <span className="font-semibold text-slate-700">
-                                Booking Status :
-                            </span>
+                    Booking Status :
+                </span>
                             <span className="text-blue-700">{booking.status}</span>
                         </div>
                     </div>
