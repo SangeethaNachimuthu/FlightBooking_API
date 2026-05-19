@@ -18,7 +18,7 @@ const FlightCard = ({flight, setSelectedFlight} : FlightCardProps) => {
         price,
     } = flight;
 
-    const isAvailable = status.includes("AVAILABLE");
+    const isAvailable = status === "AVAILABLE";
     const date = new Date(departureTime).toLocaleDateString("en-GB", {
         day: "2-digit",
         month: "short",
@@ -92,7 +92,7 @@ const FlightCard = ({flight, setSelectedFlight} : FlightCardProps) => {
                         SEK {price}
                     </span>
                     <button type="button"
-                            className={`inline-flex h-8 w-40 items-center justify-center rounded-xl px-5 text-xs font-bold 
+                            className={`inline-flex h-8 w-full items-center justify-center rounded-xl px-5 text-xs font-bold
                             ${isAvailable
                                 ? "bg-blue-200 text-blue-800 hover:bg-blue-600 hover:text-white"
                                 : "bg-slate-100 text-slate-400 cursor-not-allowed"

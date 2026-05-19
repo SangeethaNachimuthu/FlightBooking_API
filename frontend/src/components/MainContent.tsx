@@ -10,9 +10,10 @@ type FlightProps = {
     flights: FlightItem[];
     selectedCategory: string;
     setSelectedCategory: (category: string) => void;
+    searchTerm: string;
 }
 
-const MainContent = ({flights, selectedCategory, setSelectedCategory} : FlightProps) => {
+const MainContent = ({flights, selectedCategory, setSelectedCategory, searchTerm} : FlightProps) => {
 
     const [selectedFlight, setSelectedFlight] = useState<FlightItem | null>(null);
 
@@ -61,6 +62,7 @@ const MainContent = ({flights, selectedCategory, setSelectedCategory} : FlightPr
                                 flights={flights}
                                 selectedCategory={selectedCategory}
                                 setSelectedFlight={setSelectedFlight}
+                                searchTerm={searchTerm}
                             />
                         )}
 

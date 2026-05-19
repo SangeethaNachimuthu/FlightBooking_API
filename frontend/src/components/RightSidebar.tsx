@@ -1,8 +1,31 @@
 import {Headset, HeartHandshake, ShieldCheck} from "lucide-react";
 
-const RightSidebar = () => {
+type Props = {
+    searchTerm: string;
+    setSearchTerm: (value: string) => void;
+}
+
+const RightSidebar = ({searchTerm, setSearchTerm} : Props) => {
+
     return (
-        <div className="px-2 py-4 w-60 h-52">
+        <div className="px-2 py-4 w-60 h-fit">
+            {/** Quick Search **/}
+            <div className="border border-slate-200 rounded-xl p-4 bg-white mb-6">
+                <span className="text-gray-600 font-semibold text-md">
+                    Quick Search
+                </span>
+                <div className="mt-4 space-y-3">
+                    <input
+                        type="text"
+                        placeholder="Search destination"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm outline-none focus:border-blue-400"
+                    />
+                </div>
+            </div>
+
+            {/** Why Book with Us **/}
             <div className="border border-slate-200 rounded-xl  p-4">
                 <span className="text-gray-600 font-semibold text-md">
                     Why Book With Us?

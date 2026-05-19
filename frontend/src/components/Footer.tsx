@@ -2,11 +2,11 @@ import {Copyright} from "lucide-react";
 
 const Footer = () => {
     return (
-        <footer className="bg-white pt-10 pb-10 border-t border-slate-200">
+        <footer className="border-t border-slate-200 bg-white/80 backdrop-blur-md py-6">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
 
-                    <div className="flex items-center gap-1 text-gray-600 text-sm">
+                    <div className="flex items-center gap-2 text-slate-500 text-sm">
                         <Copyright size={16}/>
                         <span>
                             2026 SkyBooker. All rights reserved.
@@ -15,17 +15,17 @@ const Footer = () => {
 
                     <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
                         <a href="#"
-                           className="text-sm text-gray-600 hover:text-slate-900 transition-colors">
+                           className="hover:text-slate-900 transition-colors">
                             Privacy Policy
                         </a>
                         <span className="text-sm text-gray-600">|</span>
                         <a href="#"
-                           className="text-sm text-gray-600 hover:text-slate-900 transition-colors">
+                           className="hover:text-slate-900 transition-colors">
                             Terms of Service
                         </a>
                         <span className="text-sm text-gray-600">|</span>
                         <a href="#"
-                           className="text-sm text-gray-600 hover:text-slate-900 transition-colors">
+                           className="hover:text-slate-900 transition-colors">
                             Refund Policy
                         </a>
                     </div>
@@ -53,7 +53,8 @@ const Footer = () => {
                         <a href="#"
                            className="h-9 w-9 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-blue-600 hover:text-white"
                            aria-label="Instagram">
-                            <svg viewBox="0 0 16 16" fill="#000000" xmlns="http://www.w3.org/2000/svg" id="Facebook-Line--Streamline-Remix" height="16" width="16">
+                            <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="Facebook-Line--Streamline-Remix"
+                                 height="18" width="18" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                                 <desc>
                                     Facebook Line Streamline Icon: https://streamlinehq.com
                                 </desc>

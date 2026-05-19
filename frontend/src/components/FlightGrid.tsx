@@ -7,20 +7,27 @@ type Props = {
     flights: FlightItem[];
     selectedCategory: string;
     setSelectedFlight: (flight: FlightItem) => void;
+    searchTerm: string;
 }
 
-const FlightGrid = ({flights, selectedCategory, setSelectedFlight} : Props) => {
+const FlightGrid = ({flights, setSelectedFlight, searchTerm} : Props) => {
 
-    const filteredFlights = (selectedCategory === "Available Flights" || selectedCategory === "Book a Flight")
-        ? flights.filter(
-            (flight) => flight.status === "AVAILABLE")
-        : flights;
+    const normalizedSearch = searchTerm?.toLowerCase().trim();
+
+    const filteredFlights = flights
+        .filter((flight) => {
+            return flight.flightNumber?.toLowerCase().includes(normalizedSearch) ||
+                flight.destination?.toLowerCase().includes(normalizedSearch);
+        });
+
     const [currentPage, setCurrentPage] = useState(1);
     const flightsPerPage = 6;
-    const startIndex = (currentPage - 1) * flightsPerPage;
-    const currentFlights = filteredFlights.slice(startIndex, startIndex + flightsPerPage);
-    const totalPages = Math.ceil(filteredFlights.length / flightsPerPage);
 
+    const startIndex = (currentPage - 1) * flightsPerPage;
+
+    const currentFlights = filteredFlights.slice(startIndex, startIndex + flightsPerPage);
+
+    const totalPages = Math.ceil(filteredFlights.length / flightsPerPage);
 
     return (
         <div className="mt-5">

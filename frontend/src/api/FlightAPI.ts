@@ -5,6 +5,11 @@ export async function getAllFlights() {
     return response.json();
 }
 
+export async function getAvailableFlights() {
+    const response = await fetch(`${BASE_URL}/available`);
+    return response.json();
+}
+
 export async function bookFlight(
     flightId: number,
     passengerName: string,
