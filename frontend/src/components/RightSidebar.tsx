@@ -2,8 +2,8 @@ import {Headset, HeartHandshake, ShieldCheck} from "lucide-react";
 
 const RightSidebar = () => {
     return (
-        <div>
-            <div className="border border-slate-200 rounded-xl w-60 h-52 p-4 mt-6">
+        <div className="px-2 py-4 w-60 h-52">
+            <div className="border border-slate-200 rounded-xl  p-4">
                 <span className="text-gray-600 font-semibold text-md">
                     Why Book With Us?
                 </span>
@@ -46,7 +46,7 @@ const RightSidebar = () => {
             </div>
 
             {/** Special Offers **/}
-            <div className="bg-blue-100 rounded-xl w-60 h-44 p-4 mt-6 flex flex-col">
+            <div className="bg-blue-100 rounded-xl p-4 mt-6 flex flex-col">
 
                 <div className="flex gap-2">
                     <span className="text-blue-600 font-semibold text-md ">

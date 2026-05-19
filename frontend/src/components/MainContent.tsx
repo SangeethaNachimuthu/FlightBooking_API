@@ -24,7 +24,7 @@ const MainContent = ({flights, selectedCategory, setSelectedCategory} : FlightPr
     };
 
     return (
-        <main className="flex-1 px-4 py-6">
+        <main className="flex-1 px-4 py-4">
             <div className="flex flex-col">
                 <section className="lg:col-span-9">
                     <div className="border border-slate-200 rounded-[1.25rem] bg-slate-50/50 backdrop-blur-sm shadow-sm transition-all duration-300 hover:shadow-xl hover:border-blue-400 p-5">
