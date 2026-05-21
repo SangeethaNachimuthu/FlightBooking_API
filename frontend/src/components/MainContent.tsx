@@ -33,21 +33,24 @@ const MainContent = ({flights, selectedCategory, setSelectedCategory, searchTerm
                             <h1 className="text-xl font-bold tracking-tight text-blue-700">
                                 {selectedFlight ? "Book a Flight" : selectedCategory}
                             </h1>
-                            <label className="inline-flex items-center gap-2 text-sm text-slate-600">
-                                <span className="hidden sm:inline">Sort by:</span>
-                                <div className="relative">
-                                    <select
-                                        className="appearance-none border border-slate-200 bg-white rounded-xl py-2 pl-3 pr-9 text-sm text-slate-950 transition-all duration-200 outline-none cursor-pointer focus:border-blue-400 focus:ring-4 focus:ring-blue-600/10">
-                                        <option selected>Departure Time</option>
-                                        <option>Destination</option>
-                                        <option>Status</option>
-                                        <option>Price</option>
-                                    </select>
-                                    <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-slate-400">
+
+                            {!selectedFlight && (
+                                <label className="inline-flex items-center gap-2 text-sm text-slate-600">
+                                    <span className="hidden sm:inline">Sort by:</span>
+                                    <div className="relative">
+                                        <select
+                                            className="appearance-none border border-slate-200 bg-white rounded-xl py-2 pl-3 pr-9 text-sm text-slate-950 transition-all duration-200 outline-none cursor-pointer focus:border-blue-400 focus:ring-4 focus:ring-blue-600/10">
+                                            <option selected>Departure Time</option>
+                                            <option>Destination</option>
+                                            <option>Status</option>
+                                            <option>Price</option>
+                                        </select>
+                                        <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-slate-400">
                                         <ChevronDown size={20} />
                                     </span>
-                                </div>
-                            </label>
+                                    </div>
+                                </label>
+                            )}
                         </div>
                         <div className="mt-5 h-px bg-slate-100"></div>
 
