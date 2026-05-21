@@ -47,7 +47,7 @@ const CancelBooking = () => {
                 {loading ? "Cancelling..." : "Cancel Booking"}
             </button>
             {message && (
-                <p className="text-sm text-slate-600">
+                <p className="mb-4 rounded-lg bg-green-100 px-4 py-3 text-sm font-medium text-green-700">
                     {message}
                 </p>
             )}
